@@ -1,0 +1,7 @@
+chromedriver.exe - 2.42.591088
+geckodriver.exe - 0.23
+IEDriverServer.exe - 3.14.0.14
+
+Note that drivers for Microsoft Edge and Apple Safari are supplied
+as part of their respective operating systems and are versioned
+accordingly.
