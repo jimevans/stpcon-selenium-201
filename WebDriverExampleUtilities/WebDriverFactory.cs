@@ -17,6 +17,36 @@ namespace WebDriverExampleUtilities
     public static class WebDriverFactory
     {
         /// <summary>
+        /// Creates a WebDriver instance for the desired browser.
+        /// </summary>
+        /// <param name="kind">The browser to launch.</param>
+        /// <returns>A WebDriver instance for the specified browser.</returns>
+        public static IWebDriver CreateWebDriver(BrowserKind kind)
+        {
+            IWebDriver driver = null;
+            switch (kind)
+            {
+                case BrowserKind.InternetExplorer:
+                    driver = new InternetExplorerDriver();
+                    break;
+
+                case BrowserKind.Firefox:
+                    driver = new FirefoxDriver();
+                    break;
+
+                case BrowserKind.Chrome:
+                    driver = new ChromeDriver();
+                    break;
+
+                case BrowserKind.Edge:
+                    driver = new EdgeDriver();
+                    break;
+            }
+
+            return driver;
+        }
+
+        /// <summary>
         /// Creates a WebDriver instance for the desired browser using the specified proxy settings.
         /// </summary>
         /// <param name="kind">The browser to launch.</param>
@@ -71,7 +101,7 @@ namespace WebDriverExampleUtilities
         /// Creates an FirefoxDriver instance using the specified proxy settings.
         /// </summary>
         /// <param name="proxy">The WebDriver Proxy object containing the proxy settings.</param>
-        /// <returns>An FirefoxDriver instance using the specified proxy settings</returns>
+        /// <returns>A FirefoxDriver instance using the specified proxy settings</returns>
         private static IWebDriver CreateFirefoxDriverWithProxy(Proxy proxy)
         {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
@@ -85,7 +115,7 @@ namespace WebDriverExampleUtilities
         /// Creates an ChromeDriver instance using the specified proxy settings.
         /// </summary>
         /// <param name="proxy">The WebDriver Proxy object containing the proxy settings.</param>
-        /// <returns>An ChromeDriver instance using the specified proxy settings</returns>
+        /// <returns>A ChromeDriver instance using the specified proxy settings</returns>
         private static IWebDriver CreateChromeDriverWithProxy(Proxy proxy)
         {
             ChromeOptions chromeOptions = new ChromeOptions();
@@ -95,6 +125,11 @@ namespace WebDriverExampleUtilities
             return driver;
         }
 
+        /// <summary>
+        /// Creates an EdgeDriver instance using the specified proxy settings.
+        /// </summary>
+        /// <param name="proxy">The WebDriver Proxy object containing the proxy settings.</param>
+        /// <returns>An EdgeDriver instance using the specified proxy settings</returns>
         private static IWebDriver CreateEdgeDriverWithProxy(Proxy proxy)
         {
             EdgeOptions edgeOptions = new EdgeOptions();

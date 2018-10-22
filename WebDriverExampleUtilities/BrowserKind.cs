@@ -5,12 +5,6 @@
 
 namespace WebDriverExampleUtilities
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Types of browser available for proxy examples.
     /// </summary>

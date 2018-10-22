@@ -48,7 +48,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="AuthenticationExtensionMethods.cs" />
+    <Compile Include="HttpStatusCodeExtensionMethods.cs" />
+    <Compile Include="JavaScriptErrorExtensionMethods.cs" />
     <Compile Include="ProxyExamples.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
