@@ -20,9 +20,8 @@ namespace PageObjectPatternExamples
         static void Main(string[] args)
         {
             BrowserKind browserKind = BrowserKind.Chrome;
-            string baseUrl = Constants.BaseUrl;
 
-            PageObjectPatternExamples pageObjectPatternExamples = new PageObjectPatternExamples(browserKind, baseUrl);
+            PageObjectPatternExamples pageObjectPatternExamples = new PageObjectPatternExamples(browserKind);
 
             pageObjectPatternExamples.TestSuccessfulLogin();
 

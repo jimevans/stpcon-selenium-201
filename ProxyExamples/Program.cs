@@ -20,8 +20,6 @@ namespace ProxyExamples
         /// <param name="args">Command line arguments of the application.</param>
         static void Main(string[] args)
         {
-            string baseUrl = Constants.BaseUrl;
-
             // Note that we're using a port of 0, which tells the proxy to
             // select a random available port to listen on.
             int proxyPort = ProxyManager.Instance.StartProxyServer();
@@ -41,9 +39,9 @@ namespace ProxyExamples
             IWebDriver driver = WebDriverFactory.CreateWebDriverWithProxy(browser, proxy);
 
             ProxyExamples proxyExamples = new ProxyExamples();
-            proxyExamples.TestStatusCodes(driver, baseUrl);
-            //proxyExamples.TestJavaScriptErrors(driver, baseUrl);
-            //proxyExamples.TestAuthentication(driver, baseUrl);
+            proxyExamples.TestStatusCodes(driver);
+            //proxyExamples.TestJavaScriptErrors(driver);
+            //proxyExamples.TestAuthentication(driver);
 
             driver.Quit();
             ProxyManager.Instance.StopProxyServer();

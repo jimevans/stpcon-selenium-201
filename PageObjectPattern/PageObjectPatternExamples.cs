@@ -15,18 +15,17 @@ namespace PageObjectPatternExamples
     class PageObjectPatternExamples
     {
         private BrowserKind browserKind;
-        private string baseUrl = string.Empty;
+        private UrlBuilder builder;
         private IWebDriver driver;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PageObjectPatternExamples"/> class.
         /// </summary>
         /// <param name="browserKind">The <see cref="BrowserKind"/> value to use to browser the pages.</param>
-        /// <param name="baseUrl">The base URL used to navigate to the pages.</param>
-        public PageObjectPatternExamples(BrowserKind browserKind, string baseUrl)
+        public PageObjectPatternExamples(BrowserKind browserKind)
         {
             this.browserKind = browserKind;
-            this.baseUrl = baseUrl;
+            this.builder = new UrlBuilder();
         }
 
         /// <summary>
@@ -35,7 +34,7 @@ namespace PageObjectPatternExamples
         public void SetUp()
         {
             this.driver = WebDriverFactory.CreateWebDriver(this.browserKind);
-            this.driver.Url = this.baseUrl + "login";
+            this.driver.Url = this.builder.BuildUrl("login");
         }
 
         /// <summary>

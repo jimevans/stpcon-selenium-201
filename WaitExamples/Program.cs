@@ -21,9 +21,9 @@ namespace WaitExamples
         /// <param name="args">Command line arguments of the application.</param>
         static void Main(string[] args)
         {
-            string baseUrl = Constants.BaseUrl;
+            UrlBuilder builder = new UrlBuilder();
             IWebDriver driver = WebDriverFactory.CreateWebDriver(BrowserKind.Chrome);
-            driver.Url = baseUrl + "dynamic_loading/1";
+            driver.Url = builder.BuildUrl("dynamic_loading/1");
 
             driver.FindElement(By.CssSelector("button")).Click();
 
